@@ -22,5 +22,9 @@ Route::get('/', [ProductController::class, 'index']);
 Route::get('/login', [PagesController::class, 'login']);
 Route::get('/register', [PagesController::class, 'register']);
 Route::get('/contact', [PagesController::class, 'contact']);
+Route::get('/add-product', [ProductController::class, 'addProduct']);
+Route::post('/add-product', [ProductController::class, 'addProductPost']);
+Route::get('/edit-product/{id}', [ProductController::class, 'editProduct']);
+
 Route::get('/productDetails/{id}', [ProductController::class, 'productDetails']);
 

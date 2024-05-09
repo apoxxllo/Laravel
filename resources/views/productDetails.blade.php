@@ -1,9 +1,9 @@
 @include('template.header')
 
-<x-navbar/>
 
 
 <h1>Products Details</h1>
+<a href="/edit-product/{{$product->id}}" class="btn btn-primary">Edit product</a>
 <img src="{{$product->image}}">
 <p>Product name: {{$product->name}}</p>
 <p>Product qty available: {{$product->qty}}</p>
