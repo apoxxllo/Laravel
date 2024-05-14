@@ -3,12 +3,12 @@
     <h1>Edit product</h1>
     @if($errors)
         @foreach($errors->all() as $err)
-            <div class="älert alert-danger">
+            <div class="alert alert-danger">
                 {{$err}}
             </div>
         @endforeach
     @endif
-    <form action="/edit-product" method="post">
+    <form action="{{route('editPost', ['id' => $product->id])}}" method="post">
         @csrf
         <div class="mb-3">
             <label for="name" class="form-label">Name</label>
@@ -20,12 +20,13 @@
         </div>
         <div class="mb-3">
             <label for="price" class="form-label">Price</label>
-            <input type="number" value="{{old('price') ? old('price') : $product->price}}" class="form-control" id="price" name="price" >
+            <input type="number"  step=".01" value="{{old('price') ? old('price') : $product->price}}" class="form-control" id="price" name="price" >
         </div>
         <div class="mb-3">
             <label for="image" class="form-label">Image</label>
             <input type="file" class="form-control" id="image">
         </div>
+        <input type="number" name="id" id="productId" value="{{$product->id}}" readonly>
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>
 </div>

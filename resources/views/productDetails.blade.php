@@ -4,7 +4,9 @@
 
 <h1>Products Details</h1>
 <a href="/edit-product/{{$product->id}}" class="btn btn-primary">Edit product</a>
-<img src="{{$product->image}}">
+<a href="/deleteProduct/{{$product->id}}" class="btn btn-danger">Delete product</a>
+<br>
+<img src="{{$product->image}}" class="mt-4">
 <p>Product name: {{$product->name}}</p>
 <p>Product qty available: {{$product->qty}}</p>
 <p>Product price: {{$product->price}}</p>

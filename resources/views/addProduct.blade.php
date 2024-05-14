@@ -20,7 +20,7 @@
         </div>
         <div class="mb-3">
             <label for="price" class="form-label">Price</label>
-            <input type="number" value="{{old('price')}}" class="form-control" id="price" name="price" placeholder="42.20">
+            <input type="number"  step=".01" value="{{old('price')}}" class="form-control" id="price" name="price" placeholder="42.20">
         </div>
         <div class="mb-3">
             <label for="image" class="form-label">Image</label>
