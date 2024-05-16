@@ -1,8 +1,13 @@
 @include('template.header')
-
+@if(session('success'))
+    <div class="alert alert-success">
+        {{session('success')}}
+    </div>
+@endif
 <h1>Login page</h1>
 <div class="container-fluid">
     <form action="/loginPost" method="post">
+        @csrf
         <div class="form-group">
             <label for="exampleInputEmail1">Email address</label>
             <input type="email" class="form-control" name="email" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">

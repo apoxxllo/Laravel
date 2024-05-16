@@ -9,20 +9,26 @@ use Illuminate\Http\Request;
 class ProductController extends Controller
 {
     public function index(){
-        $products = Product::all();
+        $products = Product::paginate(10);
         $users = User::all();
-        return view('index')->with('products', $products)->with('users', $users);
+        return view('index')->with('products', $products)->with('users', $users)->with('title', "Home");
     }
 
     public function productDetails($id){
         $product = Product::find($id);
-        $products = Product::orderBy('price', 'desc')->take(5)->get();
+        $products = Product::orderBy('price', 'desc')->paginate(10);
 
-        return view('productDetails')->with('product', $product)->with('products', $products);
+        $data = [
+            'title' => "Product Details",
+            'product' => $product,
+            'products' => $products
+        ];
+
+        return view('productDetails', $data);
     }
 
     public function addProduct(){
-        return view('addProduct');
+        return view('addProduct')->with('title', 'Add Product');
     }
 
     public function addProductPost(Request $request){

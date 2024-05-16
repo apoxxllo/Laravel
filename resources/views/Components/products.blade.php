@@ -18,4 +18,6 @@
         <td><a href="/productDetails/{{$product->id}}">VIEW DETAILS</a></td>
     </tr>
     @endforeach
+
 </table>
+{{$products->links()}}
